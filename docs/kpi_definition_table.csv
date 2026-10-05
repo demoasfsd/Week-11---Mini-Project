@@ -1,0 +1,6 @@
+kpi_name,definition_formula,grain,target,owner
+Machine Connectivity Rate,(จำนวนเครื่องที่ส่งข้อมูลสำเร็จ / จำนวนเครื่องทั้งหมด) x 100,รายเครื่อง / วัน,>= 98%,Automation Engineer
+Average Data Latency,ค่าเฉลี่ยเวลาที่ข้อมูลเดินทางจากเครื่องจักรถึง dashboard (วินาที),รายเครื่อง / 5 นาที,<= 5 วินาที,IT / Backend Team
+OEE (Overall Equipment Effectiveness),Availability x Performance x Quality (%),รายไลน์ / กะ,>= 75%,Operations Manager
+Total Downtime Hours,ผลรวมเวลาที่เครื่องจักรหยุดทำงานโดยไม่ได้วางแผน (ชั่วโมง),รายไซต์ / วัน,<= 2 ชม ต่อวันต่อไซต์,Operations Manager
+Integration Error Count,จำนวนครั้งที่ protocol translator แปลงข้อมูลผิดพลาดหรือ timeout,รายเครื่อง / วัน,<= 5 ครั้งต่อเครื่องต่อวัน,IT / Backend Team

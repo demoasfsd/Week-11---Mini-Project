@@ -1,0 +1,37 @@
+machine_id,site,production_line,brand,protocol,shift,status,connectivity_pct_today,latency_sec,oee_pct,downtime_min_today,error_count_today
+M001,โรงงานระยอง,Line A,Mitsubishi Electric,Modbus TCP,กะดึก,online,95.3,3.52,88.3,2,1
+M002,โรงงานระยอง,Line A,Delta,Modbus TCP,กะเช้า,online,95.4,3.03,82.3,14,0
+M003,โรงงานระยอง,Line A,Delta,OPC UA,กะบ่าย,online,98.9,0.82,81.7,7,1
+M004,โรงงานระยอง,Line A,FANUC,OPC UA,กะบ่าย,online,96.3,2.13,67.0,1,0
+M005,โรงงานระยอง,Line A,Keyence,Modbus TCP,กะบ่าย,online,95.8,3.13,70.3,4,2
+M006,โรงงานระยอง,Line A,Mitsubishi Electric,Modbus TCP,กะดึก,online,95.7,1.1,61.4,6,0
+M007,โรงงานระยอง,Line B,Schneider Electric,OPC UA,กะบ่าย,online,98.0,3.4,60.4,13,1
+M008,โรงงานระยอง,Line B,Yaskawa,OPC UA,กะเช้า,online,95.6,4.22,65.5,6,1
+M009,โรงงานระยอง,Line B,Siemens,OPC UA,กะเช้า,online,96.4,1.04,77.3,14,2
+M010,โรงงานระยอง,Line B,Omron,EtherNet/IP,กะบ่าย,online,97.9,1.33,83.3,11,0
+M011,โรงงานระยอง,Line B,Rockwell,EtherNet/IP,กะดึก,online,95.3,4.49,61.1,1,0
+M012,โรงงานระยอง,Line B,Mitsubishi Electric,OPC UA,กะดึก,online,98.1,3.01,78.3,9,0
+M013,โรงงานชลบุรี,Line A,Yaskawa,Modbus TCP,กะดึก,online,98.1,2.79,79.8,2,0
+M014,โรงงานชลบุรี,Line A,Delta,OPC UA,กะบ่าย,online,98.3,3.46,83.9,10,3
+M015,โรงงานชลบุรี,Line A,Mitsubishi Electric,Profinet,กะดึก,online,95.2,2.18,90.4,18,0
+M016,โรงงานชลบุรี,Line A,Siemens,Profinet,กะบ่าย,online,99.6,4.05,68.5,1,1
+M017,โรงงานชลบุรี,Line A,Rockwell,Modbus TCP,กะเช้า,online,98.9,4.42,62.3,13,0
+M018,โรงงานชลบุรี,Line B,FANUC,Profinet,กะดึก,online,96.5,1.58,82.8,4,0
+M019,โรงงานชลบุรี,Line B,ABB,EtherNet/IP,กะดึก,online,96.6,2.72,65.6,7,0
+M020,โรงงานชลบุรี,Line B,Rockwell,OPC UA,กะดึก,online,94.4,3.14,88.8,17,0
+M021,โรงงานชลบุรี,Line B,Mitsubishi Electric,OPC UA,กะบ่าย,online,95.3,1.29,77.4,9,2
+M022,โรงงานชลบุรี,Line B,Keyence,EtherNet/IP,กะเช้า,online,98.0,2.11,87.4,1,0
+M023,โรงงานชลบุรี,Line B,Mitsubishi Electric,Modbus TCP,กะบ่าย,online,98.8,1.2,76.2,3,0
+M024,โรงงานชลบุรี,Line C,ABB,EtherNet/IP,กะเช้า,online,94.5,3.79,61.3,13,2
+M025,โรงงานชลบุรี,Line C,Yaskawa,Modbus TCP,กะเช้า,offline,69.7,10.83,14.4,216,20
+M026,โรงงานชลบุรี,Line C,Siemens,OPC UA,กะบ่าย,online,96.3,4.23,67.7,14,1
+M027,โรงงานชลบุรี,Line C,Yaskawa,EtherNet/IP,กะเช้า,online,95.3,1.02,60.1,6,1
+M028,โรงงานสมุทรสาคร,Line A,Rockwell,EtherNet/IP,กะดึก,online,97.2,1.01,86.9,1,0
+M029,โรงงานสมุทรสาคร,Line A,Mitsubishi Electric,OPC UA,กะบ่าย,online,99.3,1.71,79.1,8,0
+M030,โรงงานสมุทรสาคร,Line A,Rockwell,Profinet,กะบ่าย,online,98.3,1.68,80.8,6,0
+M031,โรงงานสมุทรสาคร,Line A,Schneider Electric,Modbus TCP,กะเช้า,online,100.0,4.49,65.2,5,0
+M032,โรงงานสมุทรสาคร,Line B,Mitsubishi Electric,OPC UA,กะบ่าย,online,96.6,2.81,91.5,16,0
+M033,โรงงานสมุทรสาคร,Line B,Yaskawa,Modbus TCP,กะดึก,online,95.8,3.25,62.6,2,2
+M034,โรงงานสมุทรสาคร,Line B,Mitsubishi Electric,OPC UA,กะบ่าย,online,95.3,2.07,87.0,10,1
+M035,โรงงานสมุทรสาคร,Line B,ABB,Modbus TCP,กะเช้า,online,99.0,0.96,62.4,20,0
+M036,โรงงานสมุทรสาคร,Line B,FANUC,EtherNet/IP,กะดึก,online,97.4,1.21,81.5,3,2

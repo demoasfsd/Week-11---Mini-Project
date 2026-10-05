@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KinetiQ — Dashboard Brief Canvas & Wireframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1128; --navy-2:#111B3A; --red:#FF4B2B; --silver:#F1F5F9; --muted:#8E9AC2;
+    --c-blue:#3B82F6; --c-teal:#14B8A6; --c-orange:#F59E0B; --c-purple:#8B5CF6; --c-green:#10B981; --c-red:#EF4444;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F3F4F8;color:#1C2340;font-family:'Plus Jakarta Sans','IBM Plex Sans Thai',sans-serif;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px;}
+  .mono{font-family:'Space Mono',monospace;}
+
+  header.hero{padding:56px 0 44px;background:linear-gradient(180deg,var(--navy) 0%, var(--navy-2) 100%);color:var(--silver);}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--red);text-transform:uppercase;margin-bottom:12px;}
+  h1{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(24px,3.6vw,38px);line-height:1.2;margin:0 0 14px;}
+  .hero p{font-size:15px;line-height:1.75;color:#C2CBE8;max-width:760px;margin:0 0 20px;}
+  .meta-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .pill{font-family:'Space Mono',monospace;font-size:11px;border:1px solid #2A3766;padding:6px 12px;border-radius:20px;color:#AEB9DE;}
+
+  nav.toc{background:#fff;border-bottom:1px solid #E3E6F0;position:sticky;top:0;z-index:5;}
+  nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:12px;padding-bottom:12px;}
+  nav.toc a{font-size:12.5px;font-weight:600;color:#5B6490;text-decoration:none;padding:8px 14px;border-radius:8px;white-space:nowrap;}
+  nav.toc a:hover{background:#F0F1F8;color:var(--navy);}
+
+  section{padding:52px 0;border-bottom:1px solid #E3E6F0;scroll-margin-top:60px;}
+  .sec-tag{font-family:'Space Mono',monospace;font-size:12px;color:var(--red);letter-spacing:.06em;margin-bottom:8px;}
+  h2{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(20px,2.6vw,27px);line-height:1.3;margin:0 0 8px;}
+  .sec-sub{font-size:14px;color:#5B6490;margin:0 0 28px;max-width:720px;line-height:1.7;}
+
+  /* Canvas cards */
+  .canvas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:900px){.canvas-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:620px){.canvas-grid{grid-template-columns:1fr;}}
+  .c-card{background:#fff;border-radius:10px;padding:22px 22px 24px;box-shadow:0 1px 3px rgba(20,24,60,.06);border-left:4px solid transparent;}
+  .c-card .num{font-family:'Unbounded',sans-serif;font-weight:800;font-size:13px;opacity:.5;margin-bottom:6px;}
+  .c-card .ttl{font-weight:700;font-size:15.5px;margin-bottom:10px;}
+  .c-card .q{font-size:12px;color:#8691BB;margin-bottom:12px;}
+  .c-card .ans{font-size:13.3px;line-height:1.75;color:#333A5C;}
+  .c-card .ans ul{margin:0;padding-left:18px;}
+  .c-card .ans li{margin-bottom:5px;}
+
+  /* KPI table */
+  table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #E9EBF4;vertical-align:top;}
+  th{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.03em;color:#8691BB;text-transform:uppercase;background:#F7F8FC;}
+  .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid #E9EBF4;}
+
+  /* Wireframe mock */
+  .board{background:var(--navy);border-radius:14px;padding:22px;color:var(--silver);}
+  .board-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;}
+  .board-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:15px;}
+  .filter-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .filter-chip{font-family:'Space Mono',monospace;font-size:10.5px;background:#182352;border:1px solid #2A3766;border-radius:6px;padding:6px 10px;color:#AEB9DE;}
+  .alert-banner{background:#3A1414;border:1px solid #6B2323;border-left:4px solid var(--red);border-radius:8px;padding:12px 16px;font-size:12.5px;color:#FFD6CC;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start;}
+  .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px;}
+  @media (max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr);}}
+  .kpi{background:#101A3A;border:1px solid #212D58;border-radius:8px;padding:14px 14px;}
+  .kpi .num{font-family:'Unbounded',sans-serif;font-weight:800;font-size:19px;color:var(--red);}
+  .kpi .lbl{font-size:10.5px;color:#9AA6CC;margin-top:5px;line-height:1.5;}
+  .board-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;}
+  @media (max-width:900px){.board-grid{grid-template-columns:1fr;}}
+  .panel{background:#101A3A;border:1px solid #212D58;border-radius:10px;padding:16px 16px 14px;}
+  .panel h4{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.03em;color:#9AA6CC;text-transform:uppercase;margin:0 0 10px;}
+  .panel .note{font-size:10.5px;color:#6E7AA6;margin-top:8px;}
+  .status-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;}
+  .status-grid .sq{width:100%;aspect-ratio:1;border-radius:3px;}
+  .legend{display:flex;gap:14px;margin-top:10px;font-size:10.5px;color:#9AA6CC;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend i{width:9px;height:9px;border-radius:2px;display:inline-block;}
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .bar-label{font-size:11px;color:#C2CBE8;width:130px;flex:0 0 130px;}
+  .bar-track{flex:1;background:#1A2550;border-radius:4px;height:11px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:4px;}
+  .bar-val{font-family:'Space Mono',monospace;font-size:10.5px;color:#C2CBE8;width:48px;flex:0 0 48px;text-align:right;}
+
+  /* chart rationale + filter/alert lists */
+  .reason-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media (max-width:760px){.reason-grid{grid-template-columns:1fr;}}
+  .f-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  @media (max-width:760px){.f-list{grid-template-columns:1fr 1fr;}}
+  .f-chip{background:#fff;border:1px solid #E3E6F0;border-radius:8px;padding:10px 12px;font-size:12.5px;font-weight:600;}
+  .alert-list{display:flex;flex-direction:column;gap:10px;}
+  .alert-item{display:flex;gap:12px;background:#fff;border:1px solid #E3E6F0;border-left:4px solid; border-radius:8px;padding:12px 14px;}
+  .alert-item .lvl{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+  .alert-item .txt{font-size:13px;line-height:1.6;color:#333A5C;}
+
+  footer{padding:46px 0 70px;}
+  .deliver-check{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0 26px;}
+  @media (max-width:900px){.deliver-check{grid-template-columns:repeat(2,1fr);}}
+  .dchip{background:#fff;border:1px solid #E3E6F0;border-radius:8px;padding:10px 12px;font-size:12px;display:flex;gap:8px;align-items:center;}
+  .group-box{background:#fff;border:1px dashed #C7CCE4;border-radius:10px;padding:20px 22px;margin:20px 0;}
+  .group-box h4{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:#8691BB;text-transform:uppercase;margin:0 0 10px;}
+  .group-box ol{margin:0;padding-left:20px;font-size:13.5px;line-height:2;color:#333A5C;}
+  footer .src{font-size:12px;color:#8691BB;line-height:1.8;max-width:760px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">BUSINESS INTELLIGENCE &amp; DASHBOARD DESIGN · BUSINESS IDEA CREATION</div>
+    <h1>KinetiQ Operations Dashboard — Dashboard Brief Canvas, KPI Table &amp; Wireframe</h1>
+    <p>Use case ที่เลือก: <b>มอนิเตอร์การเชื่อมต่อและประสิทธิภาพเครื่องจักรแบบเรียลไทม์ สำหรับผู้จัดการฝ่ายผลิตที่ดูแลเครื่องจักรหลายยี่ห้อผ่านแพลตฟอร์ม KinetiQ</b> — ตรงกับแก่นของสินค้าบริษัทที่แปลงข้อมูลเครื่องจักรต่างโปรโตคอลให้ขึ้นแดชบอร์ดเดียว แบบเรียลไทม์</p>
+    <div class="meta-row">
+      <div class="pill">COMPANY: KinetiQ</div>
+      <div class="pill">DOMAIN: Manufacturing Ops / IIoT</div>
+      <div class="pill">GRAIN: Per Machine · 5-min interval</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#canvas">1. Brief Canvas</a>
+    <a href="#kpi">2. KPI Table</a>
+    <a href="#wireframe">3. Wireframe</a>
+    <a href="#charts">4. Chart Selection</a>
+    <a href="#filters">5. Filter &amp; Alert</a>
+    <a href="#deliver">6. สรุปส่งงาน</a>
+  </div>
+</nav>
+
+<!-- 1. BRIEF CANVAS -->
+<section id="canvas">
+  <div class="wrap">
+    <div class="sec-tag"></div>
+    <h2>Dashboard Brief Canvas</h2>
+    <p class="sec-sub">เติม canvas ตาม use case ที่เลือก ก่อนวาด wireframe</p>
+    <div class="canvas-grid">
+      <div class="c-card" style="border-color:var(--c-blue);">
+        <div class="num" style="color:var(--c-blue);">1</div>
+        <div class="ttl">User</div>
+        <div class="q">ใครเป็นคนดูจอ?</div>
+        <div class="ans"><ul>
+          <li>ผู้จัดการฝ่ายผลิต (Operations Manager) ที่ดูแลหลายสายการผลิต</li>
+          <li>Automation/IT Engineer ของโรงงาน ที่ดูแลการเชื่อมต่อเครื่องจักร</li>
+          <li>ทีม Customer Success ของ KinetiQ ที่มอนิเตอร์ลูกค้าหลายโรงงาน</li>
+        </ul></div>
+      </div>
+      <div class="c-card" style="border-color:var(--c-teal);">
+        <div class="num" style="color:var(--c-teal);">2</div>
+        <div class="ttl">Decision</div>
+        <div class="q">ต้องตัดสินใจอะไร?</div>
+        <div class="ans"><ul>
+          <li>เครื่องจักรเครื่องไหนเสี่ยงหยุดทำงาน ต้องส่งช่างไปตรวจก่อน?</li>
+          <li>สายการผลิตไหน OEE ต่ำกว่าเป้า ต้องเข้าไปแก้ปัญหาเร่งด่วน?</li>
+          <li>ควรปรับแผนการผลิตกะถัดไปหรือไม่?</li>
+        </ul></div>
+      </div>
+      <div class="c-card" style="border-color:var(--c-orange);">
+        <div class="num" style="color:var(--c-orange);">3</div>
+        <div class="ttl">Metric</div>
+        <div class="q">KPI หลัก 3–5 ตัว</div>
+        <div class="ans"><ul>
+          <li>Machine Connectivity Rate (%)</li>
+          <li>Average Data Latency (วินาที)</li>
+          <li>OEE เฉลี่ยต่อสายการผลิต (%)</li>
+          <li>Downtime รวม (ชั่วโมง/วัน)</li>
+          <li>Integration Error Count (ครั้ง/วัน)</li>
+        </ul></div>
+      </div>
+      <div class="c-card" style="border-color:var(--c-purple);">
+        <div class="num" style="color:var(--c-purple);">4</div>
+        <div class="ttl">Grain</div>
+        <div class="q">ข้อมูลระดับใด?</div>
+        <div class="ans"><ul>
+          <li>ระดับเครื่องจักรรายเครื่อง (machine-level) ทุก 5 นาที</li>
+          <li>รวมเป็นรายสายการผลิต / รายไซต์ / รายวัน สำหรับแดชบอร์ดสรุป</li>
+        </ul></div>
+      </div>
+      <div class="c-card" style="border-color:var(--c-green);">
+        <div class="num" style="color:var(--c-green);">5</div>
+        <div class="ttl">Dimension</div>
+        <div class="q">ต้องตัดมุมมองด้วยอะไร?</div>
+        <div class="ans"><ul>
+          <li>ไซต์/โรงงาน (Site)</li>
+          <li>สายการผลิต (Production Line)</li>
+          <li>ยี่ห้อเครื่องจักร (Brand) และโปรโตคอล (Protocol)</li>
+          <li>กะการทำงาน (Shift) และช่วงวันที่</li>
+        </ul></div>
+      </div>
+      <div class="c-card" style="border-color:var(--c-red);">
+        <div class="num" style="color:var(--c-red);">6</div>
+        <div class="ttl">Action</div>
+        <div class="q">เห็นแล้วทำอะไรต่อ?</div>
+        <div class="ans"><ul>
+          <li>ส่งทีมซ่อมบำรุงไปตรวจเครื่องที่ offline/latency สูง</li>
+          <li>แจ้งหัวหน้าไลน์เมื่อ OEE ต่ำกว่าเป้าต่อเนื่อง</li>
+          <li>แจ้งทีม IT ตรวจสอบ protocol translator เมื่อ error สูงผิดปกติ</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. KPI TABLE -->
+<section id="kpi">
+  <div class="wrap">
+    <div class="sec-tag"></div>
+    <h2>KPI Definition Table</h2>
+    <p class="sec-sub">นิยาม สูตรคำนวณ และเป้าหมายของแต่ละ KPI ให้ชัดเจนไม่กำกวม</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>KPI</th><th>นิยาม / สูตร</th><th>Grain</th><th>เป้าหมาย (Target)</th><th>เจ้าของ (Owner)</th></tr>
+        <tr><td><b>Machine Connectivity Rate</b></td><td>(จำนวนเครื่องที่ส่งข้อมูลสำเร็จ ÷ จำนวนเครื่องทั้งหมด) × 100</td><td>รายเครื่อง / วัน</td><td>≥ 98%</td><td>Automation Engineer</td></tr>
+        <tr><td><b>Average Data Latency</b></td><td>ค่าเฉลี่ยเวลาที่ข้อมูลเดินทางจากเครื่องจักรถึง dashboard (วินาที)</td><td>รายเครื่อง / 5 นาที</td><td>≤ 5 วินาที</td><td>IT / Backend Team</td></tr>
+        <tr><td><b>OEE (Overall Equipment Effectiveness)</b></td><td>Availability × Performance × Quality (%)</td><td>รายไลน์ / กะ</td><td>≥ 75%</td><td>Operations Manager</td></tr>
+        <tr><td><b>Total Downtime Hours</b></td><td>ผลรวมเวลาที่เครื่องจักรหยุดทำงานโดยไม่ได้วางแผน (ชั่วโมง)</td><td>รายไซต์ / วัน</td><td>≤ 2 ชม./วัน ต่อไซต์</td><td>Operations Manager</td></tr>
+        <tr><td><b>Integration Error Count</b></td><td>จำนวนครั้งที่ protocol translator แปลงข้อมูลผิดพลาดหรือ timeout</td><td>รายเครื่อง / วัน</td><td>≤ 5 ครั้ง/เครื่อง/วัน</td><td>IT / Backend Team</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WIREFRAME -->
+<section id="wireframe">
+  <div class="wrap">
+    <div class="sec-tag"></div>
+    <h2>Dashboard Wireframe (1 หน้า)</h2>
+    <p class="sec-sub">ตัวอย่างข้อมูลในภาพ มาจากชุดข้อมูลจำลอง 36 เครื่องจักร 3 ไซต์ (ดูไฟล์ใน /data)</p>
+
+    <div class="board">
+      <div class="board-top">
+        <div class="board-title">⚡ KinetiQ — Operations Overview</div>
+        <div class="filter-row">
+          <div class="filter-chip">📅 7 ต.ค.–20 ต.ค. 69</div>
+          <div class="filter-chip">🏭 ทุกไซต์</div>
+          <div class="filter-chip">🔧 ทุกสายการผลิต</div>
+          <div class="filter-chip">🏷 ทุกยี่ห้อ</div>
+        </div>
+      </div>
+
+      <div class="alert-banner">
+        <div>🔴</div>
+        <div><b>Critical:</b> เครื่อง M025 (Yaskawa, Modbus TCP) ที่โรงงานชลบุรี / Line C ขาดการเชื่อมต่อมาแล้ว 216 นาที — OEE ของ Line C ลดลงเหลือ 50.9%</div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="num">96.2%</div><div class="lbl">Connectivity Rate (วันนี้)</div></div>
+        <div class="kpi"><div class="num">2.53s</div><div class="lbl">Avg Latency</div></div>
+        <div class="kpi"><div class="num">73.3%</div><div class="lbl">OEE เฉลี่ยทุกไลน์</div></div>
+        <div class="kpi"><div class="num">8.2h</div><div class="lbl">Downtime รวมวันนี้</div></div>
+        <div class="kpi"><div class="num">43</div><div class="lbl">Integration Errors วันนี้</div></div>
+      </div>
+
+      <div class="board-grid">
+        <div class="panel">
+          <h4>Connectivity % — แนวโน้ม 14 วัน (เส้นแดง = Integration Errors)</h4>
+          <svg viewBox="0 0 600 150" width="100%" height="150" preserveAspectRatio="none">
+            <line x1="461.5" y1="0" x2="461.5" y2="150" stroke="#2A3766" stroke-dasharray="3,3"/>
+            <line x1="507.7" y1="0" x2="507.7" y2="150" stroke="#2A3766" stroke-dasharray="3,3"/>
+            <path d="M 0.0,33.3 L 46.2,45.5 L 92.3,28.8 L 138.5,43.9 L 184.6,21.2 L 230.8,34.8 L 276.9,40.9 L 323.1,15.2 L 369.2,28.8 L 415.4,37.9 L 461.5,115.2 L 507.7,134.8 L 553.8,28.8 L 600.0,33.3" fill="none" stroke="#5B9CFF" stroke-width="2.5"/>
+            <path d="M 0.0,49.1 L 46.2,90.0 L 92.3,46.4 L 138.5,46.4 L 184.6,84.5 L 230.8,38.2 L 276.9,49.1 L 323.1,49.1 L 369.2,70.9 L 415.4,70.9 L 461.5,35.5 L 507.7,0.0 L 553.8,68.2 L 600.0,90.0" fill="none" stroke="#FF4B2B" stroke-width="1.6" opacity=".75"/>
+          </svg>
+          <div class="note">จุดประ = ช่วงเหตุการณ์ incident 1–2 ต.ค. ที่ connectivity ตกฮวบพร้อม error พุ่งสูง — สอดคล้องกับปัญหา Line C</div>
+        </div>
+        <div class="panel">
+          <h4>Machine Status Grid (วันนี้ · 36 เครื่อง)</h4>
+          <div class="status-grid" id="statusGrid">
+            <div class="sq" style="background:#2FBF71;" title="M001 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M002 · Delta · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M003 · Delta · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M004 · FANUC · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M005 · Keyence · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M006 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M007 · Schneider Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M008 · Yaskawa · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M009 · Siemens · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M010 · Omron · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M011 · Rockwell · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M012 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M013 · Yaskawa · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M014 · Delta · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M015 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M016 · Siemens · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M017 · Rockwell · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M018 · FANUC · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M019 · ABB · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M020 · Rockwell · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M021 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M022 · Keyence · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M023 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M024 · ABB · online"></div>
+<div class="sq" style="background:#FF4B2B;" title="M025 · Yaskawa · offline"></div>
+<div class="sq" style="background:#2FBF71;" title="M026 · Siemens · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M027 · Yaskawa · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M028 · Rockwell · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M029 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M030 · Rockwell · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M031 · Schneider Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M032 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M033 · Yaskawa · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M034 · Mitsubishi Electric · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M035 · ABB · online"></div>
+<div class="sq" style="background:#2FBF71;" title="M036 · FANUC · online"></div>
+
+          </div>
+          <div class="legend">
+            <span><i style="background:#2FBF71;"></i>Online (35)</span>
+            <span><i style="background:#FF4B2B;"></i>Offline (1)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-grid" style="margin-top:14px;">
+        <div class="panel">
+          <h4>OEE เฉลี่ยต่อสายการผลิต (%)</h4>
+          <div class="bar-row"><div class="bar-label">ระยอง / Line A</div><div class="bar-track"><div class="bar-fill" style="width:94%;background:#5B9CFF;"></div></div><div class="bar-val mono">75.2%</div></div>
+<div class="bar-row"><div class="bar-label">ระยอง / Line B</div><div class="bar-track"><div class="bar-fill" style="width:89%;background:#5B9CFF;"></div></div><div class="bar-val mono">71.0%</div></div>
+<div class="bar-row"><div class="bar-label">ชลบุรี / Line A</div><div class="bar-track"><div class="bar-fill" style="width:97%;background:#5B9CFF;"></div></div><div class="bar-val mono">77.0%</div></div>
+<div class="bar-row"><div class="bar-label">ชลบุรี / Line B</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#5B9CFF;"></div></div><div class="bar-val mono">79.7%</div></div>
+<div class="bar-row"><div class="bar-label">ชลบุรี / Line C</div><div class="bar-track"><div class="bar-fill" style="width:64%;background:#FF4B2B;"></div></div><div class="bar-val mono">50.9%</div></div>
+<div class="bar-row"><div class="bar-label">สมุทรสาคร / Line A</div><div class="bar-track"><div class="bar-fill" style="width:98%;background:#5B9CFF;"></div></div><div class="bar-val mono">78.0%</div></div>
+<div class="bar-row"><div class="bar-label">สมุทรสาคร / Line B</div><div class="bar-track"><div class="bar-fill" style="width:97%;background:#5B9CFF;"></div></div><div class="bar-val mono">77.0%</div></div>
+
+        </div>
+        <div class="panel">
+          <h4>Downtime รวมวันนี้ แยกตามไซต์ (นาที)</h4>
+          <div class="bar-row"><div class="bar-label">ชลบุรี</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#FF4B2B;"></div></div><div class="bar-val mono">334 น.</div></div>
+<div class="bar-row"><div class="bar-label">ระยอง</div><div class="bar-track"><div class="bar-fill" style="width:26%;background:#5B9CFF;"></div></div><div class="bar-val mono">88 น.</div></div>
+<div class="bar-row"><div class="bar-label">สมุทรสาคร</div><div class="bar-track"><div class="bar-fill" style="width:21%;background:#5B9CFF;"></div></div><div class="bar-val mono">71 น.</div></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CHART SELECTION RATIONALE -->
+<section id="charts">
+  <div class="wrap">
+    <div class="sec-tag"></div>
+    <h2>เหตุผลที่เลือก Chart แต่ละแบบ</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Metric</th><th>Chart ที่เลือก</th><th>เหตุผล</th></tr>
+        <tr><td>Connectivity % (14 วัน)</td><td>Line chart</td><td>ต้องดูแนวโน้มตามเวลาและจับจุดผิดปกติ (spike/dip) ได้ทันที เหมาะกับข้อมูลต่อเนื่อง</td></tr>
+        <tr><td>Integration Errors (14 วัน)</td><td>Line chart (overlay)</td><td>วางซ้อนกับ connectivity เพื่อให้เห็นความสัมพันธ์เหตุ-ผลในกราฟเดียว ไม่ต้องสลับหน้าดู</td></tr>
+        <tr><td>Machine status วันนี้</td><td>Status grid / heatmap</td><td>มีเครื่องจักรจำนวนมาก (36 เครื่อง) การใช้สีสแกนสถานะได้เร็วกว่าตาราง เห็นเครื่องที่ผิดปกติทันทีโดยไม่ต้องอ่านตัวเลข</td></tr>
+        <tr><td>OEE ต่อสายการผลิต</td><td>Horizontal bar chart</td><td>เปรียบเทียบค่าระหว่างหมวดหมู่ (สายการผลิต) ได้ง่าย เรียงจากน้อยไปมากเพื่อชี้ไลน์ที่มีปัญหาก่อนเป็นอันดับแรก</td></tr>
+        <tr><td>Downtime ต่อไซต์</td><td>Bar chart</td><td>เทียบปริมาณสะสมระหว่างไซต์ เพื่อจัดลำดับความสำคัญว่าควรส่งทีมไปไซต์ไหนก่อน</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FILTER & ALERT -->
+<section id="filters">
+  <div class="wrap">
+    <div class="sec-tag"></div>
+    <h2>Filter และ Alert ที่ต้องมี</h2>
+
+    <p class="sec-sub" style="margin-bottom:14px;">Filter</p>
+    <div class="f-list" style="margin-bottom:34px;">
+      <div class="f-chip">📅 ช่วงวันที่ (Date range)</div>
+      <div class="f-chip">🏭 ไซต์/โรงงาน (Site)</div>
+      <div class="f-chip">🔧 สายการผลิต (Line)</div>
+      <div class="f-chip">🏷 ยี่ห้อเครื่องจักร (Brand)</div>
+      <div class="f-chip">🔌 โปรโตคอล (Protocol)</div>
+      <div class="f-chip">⏰ กะการทำงาน (Shift)</div>
+    </div>
+
+    <p class="sec-sub" style="margin-bottom:14px;">Alert</p>
+    <div class="alert-list">
+      <div class="alert-item" style="border-color:var(--c-red);"><div class="lvl" style="color:var(--c-red);">Critical</div><div class="txt">เครื่องจักร offline เกิน 5 นาที → แจ้งทีมซ่อมบำรุงทันที พร้อมระบุ machine_id และตำแหน่ง</div></div>
+      <div class="alert-item" style="border-color:var(--c-orange);"><div class="lvl" style="color:var(--c-orange);">Warning</div><div class="txt">OEE ของสายการผลิตต่ำกว่า 65% ต่อเนื่อง 2 ชั่วโมง → แจ้งหัวหน้าสายการผลิต</div></div>
+      <div class="alert-item" style="border-color:var(--c-orange);"><div class="lvl" style="color:var(--c-orange);">Warning</div><div class="txt">Data latency เฉลี่ยเกิน 8 วินาที ต่อเนื่อง 15 นาที → อาจบ่งชี้เครือข่ายมีปัญหา แจ้งทีม IT</div></div>
+      <div class="alert-item" style="border-color:var(--c-teal);"><div class="lvl" style="color:var(--c-teal);">Watch</div><div class="txt">Integration error มากกว่า 15 ครั้ง/วัน ต่อเครื่อง → แจ้งทีม Backend ให้ตรวจสอบ protocol translator</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="deliver">
+  <div class="wrap">
+    <div class="sec-tag"></div>
+
+
+    <div class="group-box">
+      <h4>รายชื่อกลุ่ม (Group Members)</h4>
+      <ol>
+        <li>นายณัฐวัฒน์ บุญไขรัศมี </li>
+      </ol>
+    </div>
+
+    <p class="src">
+      ข้อมูลที่ใช้ทั้งหมดเป็นข้อมูลจำลอง (synthetic) สร้างให้สอดคล้องกับลักษณะปัญหาจริงของธุรกิจ KinetiQ — ไฟล์อยู่ใน <span class="mono">/data</span>:
+      <span class="mono">machine_status_snapshot.csv</span> (สถานะเครื่องจักร 36 เครื่อง 3 ไซต์ ณ วันนี้) และ
+      <span class="mono">kpi_daily_trend.csv</span> (แนวโน้ม KPI ย้อนหลัง 14 วัน)
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
