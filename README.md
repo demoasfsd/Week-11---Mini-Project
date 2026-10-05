@@ -1,6 +1,5 @@
 # KinetiQ — Dashboard Brief Canvas, KPI Table & Wireframe
-**วิชา:** Business Intelligence & Dashboard Design (Business Idea Creation)
-**บริษัท/ไอเดียธุรกิจ:** KinetiQ — AI-Driven Automation Middleware API
+กลุ่มอุตสาหกรรมเครื่องจักรและระบบอัตโนมัติ
 **Use case ที่เลือก:** มอนิเตอร์การเชื่อมต่อและประสิทธิภาพเครื่องจักรแบบเรียลไทม์ สำหรับผู้จัดการฝ่ายผลิตที่ดูแลเครื่องจักรหลายยี่ห้อ
 
 ## โครงสร้าง repository
@@ -19,7 +18,7 @@ kinetiq-bi/
 ```
 
 ## เนื้อหาตาม Deliverable ของแบบฝึกหัด
-ไฟล์ `dashboard/index.html` รวมทุกส่วนไว้ในหน้าเดียว (เลื่อนดูได้ หรือกดเมนูด้านบนเพื่อข้ามไปแต่ละส่วน):
+ไฟล์ `dashboard/index.html` รวมทุกส่วนไว้ในหน้าเดียว :
 
 1. **Brief Canvas** — User / Decision / Metric / Grain / Dimension / Action ตาม use case ของ KinetiQ
 2. **KPI Definition Table** — นิยาม สูตร grain เป้าหมาย และเจ้าของ KPI ทั้ง 5 ตัว (มีไฟล์ CSV คู่กันที่ `docs/kpi_definition_table.csv`)
@@ -28,7 +27,7 @@ kinetiq-bi/
 5. **Filter และ Alert** — รายการ filter 6 ตัว และ alert 4 ระดับความสำคัญ
 
 ## ข้อมูลที่ใช้ (/data)
-ข้อมูลทั้งหมดเป็น **ข้อมูลจำลอง (synthetic)** สร้างให้สอดคล้องกับลักษณะปัญหาจริงที่ระบุใน Business Model Canvas ของทีม (เครื่องจักรหลายยี่ห้อ ปัญหาข้อมูลไซโล) — หากนำไปใช้งานจริงควรเชื่อมต่อกับข้อมูล sensor จริงผ่าน KinetiQ API
+ข้อมูลทั้งหมดเป็น ข้อมูลจำลอง (synthetic) สร้างให้สอดคล้องกับลักษณะปัญหาจริงที่ระบุใน Business Model Canvas ของทีม (เครื่องจักรหลายยี่ห้อ ปัญหาข้อมูลไซโล) — หากนำไปใช้งานจริงควรเชื่อมต่อกับข้อมูล sensor จริงผ่าน KinetiQ API
 
 | ไฟล์ | เนื้อหา | Grain |
 |---|---|---|
@@ -36,9 +35,6 @@ kinetiq-bi/
 | `kpi_daily_trend.csv` | ค่าเฉลี่ย KPI รายวัน ย้อนหลัง 14 วัน พร้อมเหตุการณ์ incident จำลองวันที่ 1–2 ต.ค. | รายวัน |
 
 ## กลุ่ม
-ดู `docs/group_members.md` — กรอกสมาชิกให้ครบก่อนส่ง
+ดู `docs/group_members.md`
 
-## วิธีส่งเป็น Repository
-1. สร้าง repository บน GitHub เช่น `kinetiq-dashboard-brief`
-2. อัปโหลดทุกไฟล์ตามโครงสร้างด้านบน
-3. เปิดดู dashboard ได้ทันทีผ่าน GitHub Pages โดยชี้ไปที่ `dashboard/index.html`
+
